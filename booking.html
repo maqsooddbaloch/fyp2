@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Now UI Kit by Creative Tim
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- CSS Files -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/css/login-register.css" rel="stylesheet" />
+
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <script src="assets/js/login-register.js" type="text/javascript"></script>
+
+  <style>
+  .plbold::placeholder {
+font-weight: bold;
+  }
+  .valuebold::value{
+font-weight: bold;
+  }
+  </style>
+</head>
+
+<body class="landing-page sidebar-collapse">
+  <!-- Navbar -->
+  <nav  style="background-color: #1abc9c; margin-bottom: 0px;" class="navbar navbar-expand-lg ">
+      <div style="margin-bottom: -15px;" class="container">
+          <div class="navbar-translate">
+              <a class="navbar-brand" href="/"><h5><b>Event Plan</b></h5></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  <span class="navbar-toggler-icon"></span>
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+          </div>
+  
+          <div class="collapse navbar-collapse">
+            
+  
+              <form class="form-inline ml-auto" data-background-color>  
+                   <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link"><h5><b>Home</b></h5></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./venues.html" class="nav-link"><h5><b>Venues</b></h5></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./login.html" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();" class="nav-link"><h5><b>Login</b></h5></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./about.html" class="nav-link"><h5><b>About Us</b></h5></a>
+                        </li>  <li class="nav-item">
+                            <a href="./contact.html" class="nav-link"><h5><b>Contact Us</b></h5></a>
+                        </li>
+                    </ul>
+              </form>
+          </div>
+      </div>
+  </nav>
+ <!-- navbarend -->
+  <!-- login model start -->
+
+  <div  class="container">
+      
+
+   <div style="padding-top: 10%;" class=" modal fade login" id="loginModal">
+        <div class="modal-dialog login animated">
+            <div class="modal-content">
+               <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title">Login with</h4>
+                  </div>
+                  <div class="modal-body">
+                      <div class="box">
+                           <div class="content">
+                              <div class="social">
+                                  <a class="circle github" href="#">
+                                      <i class="fa fa-github fa-fw"></i>
+                                  </a>
+                                  <a id="google_login" class="circle google" href="#">
+                                      <i class="fa fa-google-plus fa-fw"></i>
+                                  </a>
+                                  <a id="facebook_login" class="circle facebook" href="#">
+                                      <i class="fa fa-facebook fa-fw"></i>
+                                  </a>
+                              </div>
+                              <div class="division">
+                                  <div class="line l"></div>
+                                    <span>or</span>
+                                  <div class="line r"></div>
+                              </div>
+                              <div class="error"></div>
+                              <div class="form loginBox">
+                                  <form method="" action="" accept-charset="UTF-8">
+                                  <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                  <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                  <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                  </form>
+                              </div>
+                           </div>
+                      </div>
+                      <div class="box">
+                          <div class="content registerBox" style="display:none;">
+                           <div class="form">
+                              <form method="" html="{:multipart=>true}" data-remote="true" action="" accept-charset="UTF-8">
+                              <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                              <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                              <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                              <input class="btn btn-default btn-register" type="button" value="Create account" name="commit">
+                              </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <div class="forgot login-footer">
+                          <span>Looking to
+                               <a href="javascript: showRegisterForm();">create an account</a>
+                          ?</span>
+                      </div>
+                      <div class="forgot register-footer" style="display:none">
+                           <span>Already have an account?</span>
+                           <a href="javascript: showLoginForm();">Login</a>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+        openLoginModal();
+    });
+</script>
+  <!-- login model end -->
+
+  
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <div style="min-height: 100vh;" class="page-header page-header-small">
+      <div class="page-header-image" data-parallax="true" style="background-image: url(https://images.unsplash.com/photo-1549046666-7c422ab19783?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1150&q=80)">
+      </div>
+      <div class="content-center">
+        <div class="container">
+          <h1 class="title">Book a venue for your event</h1>
+          <h4 >Find suitable spaces for all private and corporate events.</h4>
+          <div class="space-70"></div>
+          <div class="text-center"> 
+              <div id="inputs">
+                  <div class="row">
+                    <div class="col-sm-6 col-lg-3">
+                      <div class="form-group">
+                        <input class="plbold" placeholder="Cities" style=" border: 1px solid black;background-color: white; border-radius: 5px; padding: 15px;" list="browsers" class="form-control" />
+                        <datalist id="browsers">
+                            <option value="Karachi">
+                            <option value="Lahore">
+                            <option value="Islamabad">
+                            <option value="Hyderabad">
+                            <option value="Quetta">
+                          </datalist>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="form-group">
+                          <input class="plbold" placeholder="Type of Event" style="border-radius: 5px;border: 1px solid black;background-color: white; padding: 15px;" list="browse" class="form-control" />
+                          <datalist id="browse">
+                              <option value="Wedding">
+                              <option value="Party">
+                              <option value="Conference">
+                              <option value="Meeting">
+                              <option value="Seminar">
+                              <option value="Shows">
+                              <option value="Religious Event">
+                              <option value="Dinner/Lunch">
+
+
+                                
+                            </datalist>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6 col-lg-3">
+                          <div class="form-group">
+                            <!-- <input class="plbold" placeholder="Number of people"  style="border-radius: 5px;background-color: white;padding: 15px; border: 1px solid black;" type="number" class="form-control" /> -->
+                            <div class="datepicker-container">
+                                <div class="form-group">
+                                  <input type="text" class="form-control date-picker" value="10/05/2016" style="border-radius: 5px;background-color: white;padding:18px; border: 1px solid black;" >
+                                  
+                                
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                        
+                        <div  class="col-sm-6 col-lg-3">
+                            <div class="form-group">
+                             <a href="./venues.html"> <input class="valuebold"  style="padding: 15px; padding-left: 76px;
+                              padding-right: 76px;border-radius: 5px;; background-color:cadetblue;border: 1px solid black;" type="button" value="Search" class="form-control" />
+                              
+                            </div>
+                          </a>
+                          </div>
+                    
+                    
+                 
+                  </div>
+                </div>
+            
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="space-70"></div>
+
+    <!-- 
+      cards start
+
+     -->
+     <div class="container">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto text-center">
+            <h2 class="title">Browse Venues</h2>
+            <h5 class="description">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice extent in the Pacific and a late drop in ice extent in the Barents Sea.</h5>
+          </div>
+        </div>
+    <div class="space-70"></div>
+
+     <div class="container">
+     <div class="row">
+      
+        <div class="card ml-auto" style="width: 15rem; height: 28rem;">
+            <a href="./event.html">
+            <img style="width: 400px;height:200px ;" class="card-img-top " src="https://images.unsplash.com/photo-1480455454781-1af590be2a58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Card image cap">
+            <div class="card-body">
+              </a>
+              <h4 class="card-title">carnaton</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              
+            </div>
+          </div>
+          &nbsp;
+       
+          <div class="card ml-auto" style="width: 15rem; height: 28rem;">
+              <a href="./event.html">
+              <img style="width: 400px;height:200px ;" class="card-img-top " src="https://images.unsplash.com/photo-1529636695044-9e93499f4de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Card image cap">
+              <div class="card-body">
+                </a>
+                <h4 class="card-title">Global marQe</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+               
+              </div>
+            </div>
+            &nbsp;
+            <div class="card ml-auto" style="width: 15rem; height: 28rem;">
+              <a href="./event.html">
+               
+                <img style="width: 400px;height:200px ;" class="card-img-top " src="https://images.unsplash.com/photo-1541559476210-2c7094bc222b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80" alt="Card image cap">
+                <div class="card-body">
+                  </a>
+                  <h4 class="card-title">De palace</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  
+                </div>
+              </div>
+              &nbsp;
+              <div class="card ml-auto" style="width: 15rem; height: 28rem;">
+                <a href="./event.html">
+                  <img style="width: 400px;height:200px ;" class="card-img-top " src="https://images.unsplash.com/photo-1541559476210-2c7094bc222b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80" alt="Card image cap">
+                  <div class="card-body">
+                    </a>
+                    <h4 class="card-title">Kashana</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  
+                  </div>
+                </div>
+                &nbsp;
+           
+            
+        
+     </div>
+    </div>
+
+     <!-- 
+      cards end
+
+     -->
+
+
+
+
+
+    <footer class="footer footer-default">
+      <div class=" container ">
+        <nav>
+          <ul>
+            <li>
+              <a href="./index.html">
+                Event plan
+              </a>
+            </li>
+            <li>
+              <a href="./about.html">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="./contact.html">
+                Contact Us
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright" id="copyright">
+          &copy;
+          <script>
+            document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+          </script>, Designed by
+          <a href="" target="_blank">Invision</a>. Coded by
+          <a href="" target="_blank">Event Plan</a>.
+        </div>
+      </div>
+    </footer>
+  
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+  <script src="../assets/js/plugins/bootstrap-switch.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+  <script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
+</body>
+
+</html>
