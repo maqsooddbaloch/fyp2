@@ -157,3 +157,7 @@
 .mdl{
   margin-left: 25%;
 }
+
+#inpt::placeholder{
+  color: black;
+}

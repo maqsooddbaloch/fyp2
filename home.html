@@ -83,6 +83,9 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="./assets/demo/demo.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
+    <style>::placeholder{
+    color: black;
+    }</style>
 
 
 
@@ -193,8 +196,12 @@
                                     <form method="" action="">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                    <div class="form-group">
-                                                            <input placeholder="Cities" list="browsers"  class="form-control" />
+                                                    <div class="form-group" style="margin: 0;
+                                                    background: white;
+                                                    border-radius: 9px;
+                                                    /* padding: 3px; */
+                                                    border-radius: 9px !important;">
+                                                            <input id="inpt" placeholder="Cities" list="browsers"  class="form-control" />
                                                             <datalist id="browsers">
                                                                 <option value="Karachi">
                                                                 <option value="Lahore">
@@ -205,8 +212,12 @@
                                                           </div>
                                                         </div>
                                             <div class="col-md-3">
-                                                    <div class="form-group">
-                                                            <input placeholder="Type of event" list="browse"  class="form-control" />
+                                                    <div class="form-group" style="margin: 0;
+                                                    background: white;
+                                                    border-radius: 9px;
+                                                    /* padding: 3px; */
+                                                    border-radius: 9px !important;">
+                                                            <input  style="color: black;" id="inpt"  placeholder="Type of event" list="browse"   class="form-control" />
                                                             <datalist id="browse">
                                                                     <option value="Wedding">
                                                                     <option value="Party">
@@ -225,10 +236,15 @@
                                             </div>
                                             <div class="col-md-3">
                                                 
-                                                <div class="form-group">
+                                                <div class="form-group" style="margin: 0;
+                                                background: white;
+                                                border-radius: 9px;
+                                                border-radius: 9px !important;
+                                                
+                                                ">
                                                         <div class="datepicker-container">
                                                     <!-- <input type="text" placeholder="Password" class="form-control date-Picker" value="10/05/2016" autocomplete="current-password" /> -->
-                                                    <input type="text" class="form-control datepicker" value="10/05/2016"/>
+                                                    <input  style="color: black;" type="text" class="form-control datepicker" value="10/05/2016"/>
 
                                                 </div>
                                             </div>
