@@ -5,22 +5,15 @@
 
 
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>
-
-        Now UI Kit Pro by Creative Tim
-
-    </title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
 
     <!-- Extra details for Live View on GitHub Pages -->
     <!-- Canonical SEO -->
-    <link rel="canonical" href="https://www.creative-tim.com/product/now-ui-kit-pro" />
+    <!-- <link rel="canonical" href="https://www.creative-tim.com/product/now-ui-kit-pro" /> -->
 
 
     <!--  Social tags      -->
@@ -86,6 +79,7 @@
     <style>::placeholder{
     color: black;
     }</style>
+    <link rel="stylesheet" href="nav.css">
 
 
 
@@ -131,8 +125,8 @@
 
  <!--     *********     HEADER 2      *********      -->
 
- <div class="header-2">
-        <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute">
+ <div class="header-2">        
+        <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute" style="border-bottom: 1px solid rgba(216, 216, 216, 0.3);;">
             <div class="container">
                 <div class="navbar-translate">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,47 +134,40 @@
                         <span class="navbar-toggler-bar bar2"></span>
                         <span class="navbar-toggler-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#pablo"><h3>PlanEve</h3></a>
+                    <a class="navbar-brand mr-5"  href="#pablo"><img src="https://hirespace-static.netlify.com/web/assets/images/logo/inverted.svg" alt=""></a>
                 </div>
-
+    
                 <div class="collapse navbar-collapse">
                     <ul class=" navbar-nav mx-auto">
                        
                     </ul>
-
+    
                     <ul class="nav navbar-nav navbar-right">
-                            <li class="nav-item ">
-                                    <a style="font-size: 17px;" class="nav-link" href="./home.html">
-                                        Home
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" style="font-size: 17px;" href="./venues.html">
-                                        Venues
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" style="font-size: 17px;" href="#loginmodal" data-toggle="modal">
-                                        Login
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" style="font-size: 17px;" href="./pricing.html">
-                                            Pricing
-                                    </a>
-                                </li>
-                            
-                                <li class="nav-item">
-                                    <a class="nav-link" style="font-size: 17px;"  href="#myModal" data-toggle = 'modal'>
-                                        Contact Us
-                                    </a>
-                                    </li>
+    
+    
+    
+    
+                                    <li class="nav">
+                                        <a class="nav-link mt-1" style="font-size: 20px; letter-spacing: 3px; font-family: inherit; font-weight: 500;"  href="./askvenue.html" >
+                                            <i class="far fa-user"></i>   Ask A Venue expert &nbsp;&nbsp;&nbsp;&nbsp;
+                                        </a>
+                                        </li>
+    
+    
+                                        <li class="nav-item">
+    
+                                                <a  href="#loginmodal" data-toggle="modal" style="color: white;">
+                                                    <button class="btnnav" type="button" style="font-size: 20px; text-transform: uppercase;" >Venue Login</button>
+                                                  </a>
+                                        </li>
                             </ul>
+    
                 </div>
+                
             </div>
         </nav>
-
-
+    
+    
         <div class="page-header header-filter">
             <div class="page-header-image" style="background-image: url('https://images.unsplash.com/photo-1468359601543-843bfaef291a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80');"></div>
             <div class="container">
@@ -199,7 +186,7 @@
                                                     <div class="form-group" style="margin: 0;
                                                     background: white;
                                                     border-radius: 9px;
-                                                    /* padding: 3px; */
+                                                    padding: 4px;
                                                     border-radius: 9px !important;">
                                                             <input id="inpt" placeholder="Cities" list="browsers"  class="form-control" />
                                                             <datalist id="browsers">
@@ -215,7 +202,7 @@
                                                     <div class="form-group" style="margin: 0;
                                                     background: white;
                                                     border-radius: 9px;
-                                                    /* padding: 3px; */
+                                                    padding: 4px;
                                                     border-radius: 9px !important;">
                                                             <input  style="color: black;" id="inpt"  placeholder="Type of event" list="browse"   class="form-control" />
                                                             <datalist id="browse">
@@ -239,6 +226,7 @@
                                                 <div class="form-group" style="margin: 0;
                                                 background: white;
                                                 border-radius: 9px;
+                                                padding: 4px;
                                                 border-radius: 9px !important;
                                                 
                                                 ">
@@ -250,7 +238,7 @@
                                             </div>
                                             </div>
                                             <div class="col-md-3" >
-                                                <a href="./venues.html"><button type="button"   style="border-radius: 9px;" class="btn btn-primary  btn-block">Search</button></a>
+                                                <a href="./venues.html"><button  type="button"   style=" border-radius: 9px; padding: 14px;" class="btn btn-primary  btn-block">Search</button></a>
                                             </div>
                                         </div>
                                     </form>
@@ -576,9 +564,230 @@
         
 
 
-        <div id="venlogin"></div>
-        <script src="venuelogin.js"></script>
+       <!-- copymaterial -->
+       <div class="space-70"></div>
+    <!--booking end  -->
 
+
+    <!-- model start -->
+ 
+
+    <div class="modal" id="loginmodal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-full" role="document">
+            <div class="modal-content ">
+                <div class="modal-header mdl col-md-6">
+                  
+                    <h1 class="modal-title ">
+                      Login</h1>
+                   
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h3><span aria-hidden="true"><i class="fas fa-times-circle"></i></span></h3>
+                    </button>
+                    
+                </div>
+                <div class="col-md-6 mdl " style="size: 5px;" >
+                
+               <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+               <form>
+           <br>
+                  <div class="">
+        <div class="row text-left">
+         
+          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
+            <label for="inputPassword4">Email Address</label>
+            <input type="email" id = 'lemail' class="form-control inputborder" id="inputPassword4">        
+          
+          </div>
+          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
+            <label for="inputPassword4">password</label>
+            <input type="password" id = 'lpass' class="form-control inputborder" id="inputPassword4">        
+          
+          </div>
+        </div>
+       
+        <a href="#forgetmodal"  data-dismiss="modal" data-toggle='modal'>forget password?</a>
+        </br>
+        <a href="#createaccountmodal" data-dismiss="modal"  data-toggle='modal'>create account?</a>
+        <br>
+        <br>
+       <a style=" text-decoration: none; " class="btn btn-primary col-md-12" href="#"onclick = 'login()' >Login</a> 
+       
+
+        
+
+         <!-- <button onclick = 'login()'  class="btn btn-primary col-md-12" >Login</button> -->
+
+
+
+    </div>
+    
+     
+    
+ 
+  
+      </form>
+   
+
+
+
+                </div>
+           
+            </div>
+        </div>
+
+    </div> <!-- model end -->
+    
+
+
+    <!-- booking details -->
+<div class="space-70"></div>
+    <!--booking end  -->
+
+
+    <!-- model start -->
+ 
+
+    <div class="modal" id="createaccountmodal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-full" role="document">
+            <div class="modal-content ">
+                <div class="modal-header mdl col-md-6">
+                  
+                    <h1 class="modal-title ">
+                      signup</h1>
+                   
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h3><span aria-hidden="true"><i class="fas fa-times-circle"></i></span></h3>
+                    </button>
+                    
+                </div>
+                <div class="col-md-6 mdl " style="size: 5px;" >
+                
+               <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+               <form>
+           <br>
+                  <div class="">
+        <div class="row text-left">
+         
+          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
+            <label for="inputPassword4">Full Name</label>
+            <input type="text" id='name' class="form-control inputborder" id="inputPassword4">        
+          
+          </div>
+          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
+            <label for="inputPassword4">Email Address</label>
+            <input type="email" id = 'usemail' class="form-control inputborder" id="inputPassword4">        
+          
+          </div>
+          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
+            <label for="inputPassword4">password</label>
+            <input type="password" id='uspass' class="form-control inputborder" id="inputPassword4">        
+          
+          </div>
+          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
+          <label for="inputPassword4">confirm password</label>
+          <input type="password" class="form-control inputborder" id="inputPassword4">        
+        
+        </div>
+        </div>
+       
+        <a href="#forgetmodal"  data-dismiss="modal" data-toggle='modal'>forget password?</a>
+        </br>
+        <a href="#loginmodal" data-dismiss="modal"  data-toggle='modal'>Login</a>
+        <a style=" text-decoration: none; " class="btn btn-primary col-md-12" href="#"onclick = 'register()' >Signup</a> 
+
+    </div>
+    
+     
+    
+ 
+  
+      </form>
+   
+
+
+
+                </div>
+           
+            </div>
+        </div>
+
+    </div> <!-- model end -->
+
+
+    
+<!-- booking details -->
+<div class="space-70"></div>
+    <!--booking end  -->
+
+
+    <!-- model start -->
+ 
+
+    <div class="modal" id="forgetmodal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-full" role="document">
+            <div class="modal-content ">
+                <div class="modal-header mdl col-md-6">
+                  
+                    <h1 class="modal-title ">
+                      Reset password</h1>
+                   
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h3><span aria-hidden="true"><i class="fas fa-times-circle"></i></span></h3>
+                    </button>
+                    
+                </div>
+                <div class="col-md-6 mdl " style="size: 5px;" >
+                
+               <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+               <form>
+           <br>
+                  <div class="">
+        <div class="row text-left">
+        
+         
+          <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
+            <label for="inputPassword4">Enter your Email to reset</label>
+            <input type="email" class="form-control inputborder" id="inputPassword4">        
+          
+          </div>
+         
+          
+        
+        
+        </div>
+        </div>
+        </br>
+        <a href="#createaccountmodal" data-dismiss="modal"  data-toggle='modal'>create account?</a>
+        </br>
+        <a href="#loginmodal" data-dismiss="modal"  data-toggle='modal'>login</a>
+
+
+        
+
+         <button  class="btn btn-primary col-md-12">Reset</button>
+
+
+
+    </div>
+    
+     
+    
+ 
+  
+      </form>
+   
+
+
+
+                </div>
+           
+            </div>
+        </div>
+
+    </div> <!-- model end -->
+
+
+       <!-- copyend -->
         
     
     
@@ -730,8 +939,6 @@
             </div>
             </div>
             </footer>
-            
-        
 
 
 
@@ -961,6 +1168,21 @@ elem.style.display = 'none'
             nowuiKit.initContactUsMap();
         });
     </script>
+
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+
+
+<script src="./firebase/configuration.js"></script>
+<script src='./firebase/signup.js'></script>
+<script src="./firebase/helper.js"></script>
+<script src="./firebase/login.js"></script>
+<!-- <script src="./firebase/companies.js"></script> -->
+
+
 
 </body>
 

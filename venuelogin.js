@@ -31,12 +31,12 @@ element.innerHTML = `
          
           <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
             <label for="inputPassword4">Email Address</label>
-            <input type="email" class="form-control inputborder" id="inputPassword4">        
+            <input type="email" id = 'email' class="form-control inputborder" id="inputPassword4">        
           
           </div>
           <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
             <label for="inputPassword4">password</label>
-            <input type="password" class="form-control inputborder" id="inputPassword4">        
+            <input type="password" id = 'pass' class="form-control inputborder" id="inputPassword4">        
           
           </div>
         </div>
@@ -44,8 +44,10 @@ element.innerHTML = `
         <a href="#forgetmodal"  data-dismiss="modal" data-toggle='modal'>forget password?</a>
         </br>
         <a href="#createaccountmodal" data-dismiss="modal"  data-toggle='modal'>create account?</a>
+        
 
-         <button  class="btn btn-primary col-md-12" >Login</button>
+        <a style=" text-decoration: none; " class="btn btn-primary col-md-12" href="#"onclick = 'login()' >Login</a> 
+
 
 
 
@@ -100,17 +102,17 @@ element.innerHTML = `
          
           <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
             <label for="inputPassword4">Full Name</label>
-            <input type="text" class="form-control inputborder" id="inputPassword4">        
+            <input type="text" id='name' class="form-control inputborder" id="inputPassword4">        
           
           </div>
           <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
             <label for="inputPassword4">Email Address</label>
-            <input type="email" class="form-control inputborder" id="inputPassword4">        
+            <input type="email" id = 'usemail' class="form-control inputborder" id="inputPassword4">        
           
           </div>
           <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
             <label for="inputPassword4">password</label>
-            <input type="password" class="form-control inputborder" id="inputPassword4">        
+            <input type="password" id='uspass' class="form-control inputborder" id="inputPassword4">        
           
           </div>
           <div class="form-group col-md-12 " style="margin-left:0px;margin-right: 0px;  width: 27.5%;">
@@ -123,9 +125,9 @@ element.innerHTML = `
         <a href="#forgetmodal"  data-dismiss="modal" data-toggle='modal'>forget password?</a>
         </br>
         <a href="#loginmodal" data-dismiss="modal"  data-toggle='modal'>Login</a>
+        <a style=" text-decoration: none; " class="btn btn-primary col-md-12" href="#"onclick = 'register()' >Signup</a> 
 
 
-         <button  class="btn btn-primary col-md-12">signup</button>
 
 
 
@@ -195,11 +197,10 @@ element.innerHTML = `
         </br>
         <a href="#loginmodal" data-dismiss="modal"  data-toggle='modal'>login</a>
 
+        <a style=" text-decoration: none; " class="btn btn-primary col-md-12" href="#" >Reset</a> 
+
 
         
-
-         <button  class="btn btn-primary col-md-12">Reset</button>
-
 
 
     </div>
