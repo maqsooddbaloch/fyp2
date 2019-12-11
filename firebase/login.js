@@ -13,7 +13,7 @@ async function login(){
     // var crs = firebase.auth().currentUser
     // alert(firebase.auth().currentUser.uid)
 
-    location.assign("/planevepanel/argon-dashboard-master/examples/sample.html");
+    location.assign("/planevepanel/argon-dashboard-master/examples/venues.html");
  
 
 }

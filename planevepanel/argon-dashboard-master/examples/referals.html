@@ -167,7 +167,7 @@
                   <img alt="Image placeholder" src="https://us.123rf.com/450wm/donets/donets1508/donets150800333/43440158-stock-vector-vector-user-icon-of-man-in-business-suit.jpg?ver=6">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
-                  <span class="mb-0 text-sm  font-weight-bold">Admin</span>
+                  <span id="avatarname" class="mb-0 text-sm  font-weight-bold">Admin</span>
                 </div>
               </div>
             </a>
@@ -186,7 +186,7 @@
                    
                    
                     <div class="dropdown-divider"></div>
-                    <a href="#!" class="dropdown-item">
+                    <a href="#!" onclick="logoutt()" class="dropdown-item">
                       <i class="ni ni-user-run"></i>
                       <span>Logout</span>
                     </a>
@@ -230,7 +230,7 @@
                                       <div class="col-lg-6">
                                         <div class="form-group focused">
                                           <label class="form-control-label" for="input-username">Customer Name</label>
-                                          <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                                          <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" >
                                         </div>
                                       </div>
                                       <div class="col-lg-6">
@@ -249,7 +249,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                         </div>
-                                                        <input class="form-control" placeholder="Start date" type="text" value="06/18/2019">
+                                                        <input class="form-control datepicker" id="startdate" placeholder="Start date" type="text" value="06/18/2019">
                                                     </div>
                                                 </div>
                                       </div>
@@ -261,9 +261,11 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                         </div>
-                                                        <input class="form-control" placeholder="End date" type="text" value="06/22/2019">
+                                                        <input class="form-control datepicker" id="enddate" placeholder="End date" type="text" value="06/22/2019">
                                                     </div>
                                                 </div>
+                                                
+                                                
                                       </div>
                                     </div>
                                   </div>
@@ -309,13 +311,13 @@
                                                 <div class="col-lg-6">
                                                   <div class="form-group focused">
                                                     <label class="form-control-label" for="input-username">Budget</label>
-                                                    <input type="number" id="input-username" class="form-control form-control-alternative"  value="lucky.jesse">
+                                                    <input type="number" id="input-budget" class="form-control form-control-alternative"  value="lucky.jesse">
                                                   </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                   <div class="form-group">
                                                     <label class="form-control-label" for="input-email">Number Of guests</label>
-                                                    <input type="number" id="input-email" class="form-control form-control-alternative" >
+                                                    <input type="number" id="input-guest" class="form-control form-control-alternative" >
                                                   </div>
                                                 </div>
                                               </div>
@@ -323,31 +325,35 @@
                                               <div class="form-group focused">
                                                     <label class="form-control-label" for="input-username">Catering</label>
                                                     <!-- <input type="number" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse"> -->
-                                                    <select id="inputState" class="form-control inputborder">
+                                                    <input type="text" id="input-catering" list="browse"  class="form-control form-control-alternative" >
+                                                   
+                                                    <datalist id="browse">
                                                             <option selected>None</option>
                                                             <option>Yes-provided By venue</option>
                                                             <option>Yes-Own Catering</option>
 
-                                                          </select>
+                                                    </datalist>
                                                 </div>
 
                                     <div class="form-group focused">
                                       <label>Anything else we need to know</label>
-                                      <textarea rows="4" class="form-control form-control-alternative" placeholder="E.g. Breakout spaces? Style of Venue? Outdoor space? Parking?">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                                      <textarea rows="4" id="input-textarea" class="form-control form-control-alternative" placeholder="E.g. Breakout spaces? Style of Venue? Outdoor space? Parking?">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
                                     </div>
                                     <div class="form-group">
                                             <label class="form-control-label" for="input-email">Venues Already considered by clients.</label>
-                                            <input type="text" id="input-email" class="form-control form-control-alternative" placeholder="(So that we don't accidentally contact them)">
+                                            <input type="text" id="input-venue-considered" class="form-control form-control-alternative" placeholder="(So that we don't accidentally contact them)">
                                           </div>
                                   </div>
                                 </form>
-                                <div class="pl-lg-4">
-                                <div class="form-group">
-                                    
-                                        <input type="button" value="Submit" id="input-email" class="mt-3 form-control form-control-alternative btn-success" placeholder="(So that we don't accidentally contact them)">
-                                      </div>
-                                    </div>
-                              </div>
+                                
+                                
+                                      <!-- <a href="#">
+                                       
+                                        <a href="#" type="button" onclick="sendreferal()" id="input-email" >SUBMIT</a>
+                                      </a>
+                                      </div> -->
+                                      <button onclick="sendreferal()">send</button>
+                                                                
                               </div>
                             </div>
                           </div>
@@ -396,7 +402,37 @@
         application: "argon-dashboard-free"
       });
   </script>
-  <script src="/assets/js/argon.min.js"></script>
+  <script src="../assets/js/argon.min.js"></script>
+
+  <script src="../assets/js/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+  
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+  
+
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+  <script src="../../../firebase/configuration.js"></script>
+  <script src="../../../firebase/helper.js"></script>
+  <script src="../../../firebase/signout.js"></script>
+  <script src="../../../firebase/login.js"></script>
+  <script src="../../../firebase/avatardetails.js"></script>
+  <script src="../../../firebase/logout.js"></script>
+  <script src="../../../firebase/referaldata.js"></script>
+  <script>
+
+      window.addEventListener('load',auth)
+      function auth(){
+      var id = localStorage.getItem('currentuser')
+      if(id == null)
+      {
+        location.assign('/index.html')
+        console.log('not avalible')
+      }
+      }
+      
+      </script>
+  <!-- <script>
   
 </body>
 

@@ -100,6 +100,7 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="nav.css">
 
     <!-- Visual Inspector Plugin -->
     <script type="text/javascript">
@@ -209,7 +210,8 @@
     class="sections-page sidebar-collapse"
     style="background-color: #E5E5E5;"
   >
-  <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute">
+   
+  <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute" style="border-bottom: 1px solid rgba(216, 216, 216, 0.3);;">
     <div class="container">
         <div class="navbar-translate">
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -217,7 +219,7 @@
                 <span class="navbar-toggler-bar bar2"></span>
                 <span class="navbar-toggler-bar bar3"></span>
             </button>
-            <a class="navbar-brand" href="#pablo"><h3>PlanEve</h3></a>
+            <a class="navbar-brand mr-5"  href="#pablo"><img src="https://hirespace-static.netlify.com/web/assets/images/logo/inverted.svg" alt=""></a>
         </div>
 
         <div class="collapse navbar-collapse">
@@ -226,44 +228,30 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item ">
-                            <a style="font-size: 17px;" class="nav-link" href="./home.html">
-                                Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="font-size: 17px;" href="./venues.html">
-                                Venues
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="font-size: 17px;" href="#loginmodal" data-toggle="modal">
-                                Login
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="font-size: 17px;" href="./pricing.html">
-                                    Pricing
-                            </a>
-                        </li>
-                    
-                        <li class="nav-item">
-                            <a class="nav-link" style="font-size: 17px;"  href="#myModal" data-toggle = 'modal'>
-                                Contact Us
-                            </a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" style="font-size: 17px;"  href="./askvenue.html" >
-                                 Ask Venue expert
-                              </a>
-                              </li>
+
+
+
+
+                            <li class="nav">
+                                <a class="nav-link mt-1" style="font-size: 20px; letter-spacing: 4px; font-family: inherit; font-weight: 500;"  href="./askvenue.html" >
+                                    <i class="far fa-user"></i>   Ask A Venue expert &nbsp;&nbsp;&nbsp;&nbsp;
+                                </a>
+                                </li>
+
+
+                                <li class="nav-item">
+
+                                    <a  href="#loginmodal" data-toggle="modal" style="color: white;">
+                                        <button onclick="checkauth()" class="btnnav" type="button" style="font-size: 20px; text-transform: uppercase;" >Venue Login</button>
+                                      </a>
+                                </li>
                     </ul>
+
         </div>
+        
     </div>
 </nav>
-
-
-    <div class="wrapper">
+   <div class="wrapper">
       <div class="page-header page-header-small" style="height: 450px;">
         <div
           class="page-header-image"
@@ -566,7 +554,7 @@
     </div>
     </footer>
 
-
+<script src="firebase/helper.js"></script>
 
   </body>
 </html>

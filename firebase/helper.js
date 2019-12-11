@@ -1,3 +1,5 @@
+
+
 function checkauth()
 {
   var uid = localStorage.getItem("currentuser");
@@ -6,21 +8,12 @@ function checkauth()
   
 
  console.log(uid)
-  if (uid){
-
-    if (pathname === "/home.html" || pathname === "/onevenue.html") {
-      location.assign("/planevepanel/argon-dashboard-master/examples/sample.html");
-
-    }
+  if (uid){   
+      location.assign("/planevepanel/argon-dashboard-master/examples/venues.html");
   }
  
-  else {
-    if (pathname === "/planevepanel/argon-dashboard-master/examples/sample.html" ) {
-      location.assign("/pricing.html");
-    }
-  }
 }
 
-checkauth();
+
 
 

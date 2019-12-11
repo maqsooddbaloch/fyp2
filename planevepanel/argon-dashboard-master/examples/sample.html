@@ -221,6 +221,9 @@
               <span aria-hidden="true">×</span>
             </button>
           </div>
+          <div id="ids">
+            <h1>maqsood</h1>
+          </div>
     <div class="col-lg-12">
             <!-- Tabs with icons -->
          
@@ -253,20 +256,20 @@
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Venue Name">
+                                  <input type="text" id="venue-name" class="form-control"  placeholder="Venue Name">
                                 </div>
                                 <div class="form-group">
-                                        <textarea style="height: 310px;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Venue Description"></textarea>
+                                        <textarea  style="height: 310px;" class="form-control" id="venue-description" rows="3" placeholder="Venue Description"></textarea>
                                     </div>
                               </div>
 
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <input type="text" placeholder="Address" class="form-control mb-2" />
-                                  <input type="text" placeholder="Address 2" class="form-control mb-2" />
-                                  <input type="text" placeholder="Neighborhood" class="form-control mb-2" />
-                                  <input type="text" placeholder="Country" class="form-control mb-2" />
-                                  <input placeholder="Cities" list="browsers"  class="form-control mb-2" />
+                                  <input type="text" id="venue-address" placeholder="Address" class="form-control mb-2" />
+                                  <input type="text" id="venue-address2" placeholder="Address 2" class="form-control mb-2" />
+                                  <input type="text" id="venue-neighborhood" placeholder="Neighborhood" class="form-control mb-2" />
+                                  <input type="text" id="venue-country" placeholder="Country" class="form-control mb-2" />
+                                  <input id="venue-city" placeholder="Cities" list="browsers"  class="form-control mb-2" />
                                   <datalist id="browsers">
                                                                 <option value="Karachi">
                                                                 <option value="Lahore">
@@ -274,8 +277,8 @@
                                                                 <option value="Hyderabad">
                                                                 <option value="Quetta">
                                    </datalist>
-                                   <input type="text" placeholder="Postcode" class="form-control mb-2" />
-                                   <input type="text" placeholder="Nearest Transport Link" class="form-control mb-2" />
+                                   <input type="text" id="venue-postcode" placeholder="Postcode" class="form-control mb-2" />
+                                   <input type="text" id="venue-nearest" placeholder="Nearest Transport Link" class="form-control mb-2" />
 
                                    
 
@@ -283,7 +286,7 @@
                               </div>
                             </div>
                      </form>
-                     <button class="btn btn-success">Save Details</button>
+                     <button onclick="updateitem()" class="btn btn-success">Save Details</button>
                   </div>
                   <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
                   <!-- admin table -->
@@ -383,7 +386,7 @@
                               <div class="row container">
                               <label for="" class="ml-2"><p>can bring their own carterers</p></label>
                               <label class="custom-toggle ml-auto">
-                                  <input type="checkbox" checked>
+                                  <input id="canbringfood" type="checkbox" checked>
                                   <span class="custom-toggle-slider rounded-circle"></span>
                                 </label>
                               </div>
@@ -622,6 +625,20 @@
 <script src="../../../firebase/login.js"></script>
 <script src="../../../firebase/avatardetails.js"></script>
 <script src="../../../firebase/logout.js"></script>
+<script src="../../../firebase/referaldata.js"></script>
+<script>
+
+window.addEventListener('load',auth)
+function auth(){
+var id = localStorage.getItem('currentuser')
+if(id == null)
+{
+  location.assign('/index.html')
+  console.log('not avalible')
+}
+}
+
+</script>
 <!-- <script>
 async function logout() {
     try{
