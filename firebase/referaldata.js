@@ -158,85 +158,6 @@ try {
           });})
 
 
-
-
-//     table.innerHTML = '';
-//     console.log(table)
-//     firebase
-//     .firestore()
-//     .collection("venue-basic-info")
-//     .onSnapshot(snapshot => {
-     
-      
-//       snapshot.forEach(doc => {
-//         const data = doc.data();
-       
-//         table.innerHTML += `
-//       <h1>${data.venuename}</h1>
-        
-//         `
-// console.log(data)
-//              });});
-
-      
-
-    // var response = await firebase
-    // .firestore()
-    // .collection('venue-basic-info')
-    // .where('adminid','==', currentuser)
-    // .get()
-    // response.forEach(element => {
-
-    //     table.innerHTML += `
-    //     <tbody class="list" >
-                            
-    //     <tr>
-    //         <th scope="row" class="name">
-    //             <div class="media align-items-center">
-    //                 <a href="#" class="avatar rounded-circle mr-3">
-    //                   <img alt="Image placeholder" src="https://us.123rf.com/450wm/donets/donets1508/donets150800333/43440158-stock-vector-vector-user-icon-of-man-in-business-suit.jpg?ver=6">
-    //                 </a>
-    //                 <div class="media-body">
-    //                     <span class="mb-0 text-sm">${element.data().venuename}</span>
-    //                 </div>
-    //             </div>
-    //         </th>
-           
-    //         <td class="status">
-    //             <br>
-    //             <label for="" class="" ><p>Unpublished</p></label>
-    //             <label class="custom-toggle" style="margin-bottom: -6px !important;">
-    //                 <input id="canbringfood" type="checkbox" >
-    //                 <span class="custom-toggle-slider rounded-circle"></span>
-    //               </label>
-    //         </td>
-   
-    //         <td class="text-right">
-    //                 <div class="dropdown">
-                        
-                       
-    //                     <button  onclick = 'update("${element.id}")' class="btn btn-info"> update</button>
-                       
-    //                 </div>
-    //             </td>
-    //         <td class="text-right">
-    //             <div class="dropdown">
-                    
-    //                 <button onclick = 'removevenue("${element.id}")' class="btn btn-danger"> Delete</button>
-    //             </div>
-    //         </td>
-            
-           
-    //     </tr>
-        
-      
-        
-    // </tbody>
-
-        
-    //     `
-       
-    // });
 } catch (error) {
     console.log(error.message)
 }
@@ -323,6 +244,236 @@ imageRef
   });                      
         
 }
+
+
+
+async function addfeatures(){
+    var element = document.getElementById('featuretext').value;    
+    // var elem = document.getElementById('addfeatures');
+    var companyid = localStorage.getItem('currentupdateitem')
+    try {
+        var response = await firebase 
+        .firestore()
+        .collection('features')
+        .add({
+            featurename:element,
+            companyid
+        })
+    } catch (error) {
+        console.log(error.message)
+    }
+} 
+
+
+async function addfoodanddrink(){
+    var element = document.getElementById('foodanddrink').value;    
+    // var elem = document.getElementById('foodanddrink');
+    var companyid = localStorage.getItem('currentupdateitem')
+    try {
+        var response = await firebase 
+        .firestore()
+        .collection('foodanddrink')
+        .add({
+            foodanddrink:element,
+            companyid
+        })
+    } catch (error) {
+        console.log(error.message)
+    }
+
+
+
+} 
+
+async function addwelcomes(){
+    var element = document.getElementById('welcomes').value;    
+    // var elem = document.getElementById('welcomes');
+    var companyid = localStorage.getItem('currentupdateitem')
+    try {
+        var response = await firebase 
+        .firestore()
+        .collection('welcomes')
+        .add({
+            welcomes:element,
+            companyid
+        })
+    } catch (error) {
+        console.log(error.message)
+    }
+
+
+
+} 
+
+async function addlicensing(){
+    var element = document.getElementById('licensing').value;    
+    var companyid = localStorage.getItem('currentupdateitem')
+    try {
+        var response = await firebase 
+        .firestore()
+        .collection('licensing')
+        .add({
+            licensing:element,
+            companyid
+        })
+    } catch (error) {
+        console.log(error.message)
+    }
+
+
+
+} 
+
+async function addcapacities(){
+    var element = document.getElementById('capacitites').value;    
+    // var elem = document.getElementById('addfeatures');
+    var companyid = localStorage.getItem('currentupdateitem')
+    try {
+        var response = await firebase 
+        .firestore()
+        .collection('capacitites')
+        .add({
+            capacitites:element,
+            companyid
+        })
+    } catch (error) {
+        console.log(error.message)
+    }
+
+
+
+} 
+
+
+async function addspace(){
+    var element = document.getElementById('space').value;    
+    // var elem = document.getElementById('addfeatures');
+    var companyid = localStorage.getItem('currentupdateitem')
+    try {
+        var response = await firebase 
+        .firestore()
+        .collection('space')
+        .add({
+            space:element,
+            companyid
+        })
+    } catch (error) {
+        console.log(error.message)
+    }
+
+
+
+} 
+
+window.addEventListener('load',getvenuedetails)
+async function getvenuedetails()
+{
+try {
+    var features  = document.getElementById('addfeatures')
+    var fooddrink = document.getElementById('addfood')
+    var welcomes = document.getElementById('addwelcomes')
+    var licensing = document.getElementById('addlicensing')
+    var capacitites = document.getElementById('addcapacities')
+    var space = document.getElementById('addspaces')
+    var companyid = localStorage.getItem('currentupdateitem')
+
+
+    
+    var featresp = firebase
+    .firestore()
+    .collection('features')
+    .where('companyid','==',companyid)
+    .onSnapshot(resp =>{
+        resp.forEach(data=>{
+   features.innerHTML += `
+   <div class="container row "><label for=""><h5>&nbsp;${data.data().featurename}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
+   `         
+
+        })
+    })
+
+
+    
+    var foodresp = firebase
+    .firestore()
+    .collection('foodanddrink')
+    .where('companyid','==',companyid)
+    .onSnapshot(resp =>{
+        resp.forEach(data=>{
+            fooddrink.innerHTML += `
+   <div class="container row "><label for=""><h5>&nbsp;${data.data().foodanddrink}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
+   `         
+
+        })
+    })
+
+
+    
+    var welcresp = firebase
+    .firestore()
+    .collection('welcomes')
+    .where('companyid','==',companyid)
+    .onSnapshot(resp =>{
+        resp.forEach(data=>{
+            welcomes.innerHTML += `
+   <div class="container row "><label for=""><h5>&nbsp;${data.data().welcomes}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
+   `         
+
+        })
+    })
+
+
+    
+    var licenseresp = firebase
+    .firestore()
+    .collection('licensing')
+    .where('companyid','==',companyid)
+    .onSnapshot(resp =>{
+        resp.forEach(data=>{
+            licensing.innerHTML += `
+   <div class="container row "><label for=""><h5>&nbsp;${data.data().licensing}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
+   `         
+
+        })
+    })
+
+
+    var capacityresp = firebase
+    .firestore()
+    .collection('capacitites')
+    .where('companyid','==',companyid)
+    .onSnapshot(resp =>{
+        resp.forEach(data=>{
+            capacitites.innerHTML += `
+   <div class="container row "><label for=""><h5>&nbsp;${data.data().capacitites}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
+   `         
+
+        })
+    })
+
+
+    var spaceresp = firebase
+    .firestore()
+    .collection('space')
+    .where('companyid','==',companyid)
+    .onSnapshot(resp =>{
+        resp.forEach(data=>{
+   space.innerHTML += `
+   <div class="container row "><label for=""><h5>&nbsp;${data.data().space}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
+   `         
+
+        })
+    })
+
+
+
+} catch (error) {
+    
+}
+
+}
+
+// {/* <div class="container row "><label for=""><h5>&nbsp;${element}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  */}
 
 
 
