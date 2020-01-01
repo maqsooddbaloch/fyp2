@@ -255,12 +255,23 @@
                     <form>
                             <div class="row">
                               <div class="col-md-6">
-                                <div class="form-group">
-                                  <input type="text" id="venue-name" class="form-control"  placeholder="Venue Name">
-                                </div>
-                                <div class="form-group">
-                                        <textarea  style="height: 310px;" class="form-control" id="venue-description" rows="3" placeholder="Venue Description"></textarea>
-                                    </div>
+                               
+                                  <input type="text" id="venue-name" class="form-control mb-2"  placeholder="Venue Name">
+                               
+                                  <input type="text" id="venue-Type" list="venueoptions" class="form-control mb-2"  placeholder="Venue Type">
+                                  <datalist id="venueoptions">
+                                  <option>Wedding</option>
+                                  <option>Party</option>
+                                  <option>Conference</option>
+                                  <option>Meeting</option>
+                                  <option>Seminar</option>
+                                  <option>Shows</option>
+                                  <option>Religious Event</option>
+                                </datalist>
+          
+          
+                                  <input type="number" id="venue-number" class="form-control mb-2"  placeholder="Number of people">
+                                   <textarea  style="height: 260px;" class="form-control mb-2" id="venue-description" rows="3" placeholder="Venue Description"></textarea>
                               </div>
 
                               <div class="col-md-6">
@@ -439,7 +450,7 @@
                                               <div class="form-group">
                                                 <input type="text" class="form-control" id="space" placeholder="Add space">
                                                 
-                                                <button class="btn btn-primary mt-2"  onclick="addspace()">Add</button>
+                                                <button class="btn btn-primary mt-2"  onclick="add_space()">Add</button>
                     
                                                 <div id="addspaces" class="mt-2" >
                                                 </div>
@@ -530,7 +541,6 @@
                                 </div>
   
                                 <div id="addfeatures" >
-  
                                 </div>
                           </div>
   
@@ -666,24 +676,7 @@
       });
   </script>
   <script src="/assets/js/argon.min.js"></script>
-  <script>
-
-    addfeatures = () =>{
-    var element = document.getElementById('featuretext').value;
-
-    var elem = document.getElementById('addfeatures');
-
-
- console.log(element)
-      elem.innerHTML += `
-      <div class="container row "><label for=""><h5>&nbsp;${element}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div> 
-
-    `
-    
-    } 
   
-  
-  </script>
   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
   

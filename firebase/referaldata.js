@@ -56,7 +56,7 @@ var considered = document.getElementById('input-venue-considered')
 function addinput(){
 
 try {
-    var element = document.getElementById('addspace') 
+    var element = document.getElementById('addspacee') 
     
     element.innerHTML = `
 
@@ -205,6 +205,10 @@ function updateitem(){
         var city = document.getElementById('venue-city').value
         var postcode = document.getElementById('venue-postcode').value
         var nearest = document.getElementById('venue-nearest').value
+        var venuetype = document.getElementById('venue-Type').value
+        var numberofpeople = document.getElementById('venue-number').value
+
+
 const imgname = Math.random().toString();
 const imageRef = firebase
   .storage()
@@ -234,6 +238,8 @@ imageRef
             vencity:city,
             venpostcode:postcode,
             vennearest:nearest,
+            venuetype,
+            numberofpeople,
             profileimage:url
         })
 
@@ -345,7 +351,7 @@ async function addcapacities(){
 } 
 
 
-async function addspace(){
+async function add_space(){
     var element = document.getElementById('space').value;    
     // var elem = document.getElementById('addfeatures');
     var companyid = localStorage.getItem('currentupdateitem')
@@ -384,13 +390,16 @@ try {
     .collection('features')
     .where('companyid','==',companyid)
     .onSnapshot(resp =>{
+        features.innerHTML = ''
         resp.forEach(data=>{
    features.innerHTML += `
    <div class="container row "><label for=""><h5>&nbsp;${data.data().featurename}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
    `         
-
-        })
     })
+    })
+
+
+
 
 
     
@@ -399,6 +408,8 @@ try {
     .collection('foodanddrink')
     .where('companyid','==',companyid)
     .onSnapshot(resp =>{
+        fooddrink.innerHTML = ''
+
         resp.forEach(data=>{
             fooddrink.innerHTML += `
    <div class="container row "><label for=""><h5>&nbsp;${data.data().foodanddrink}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
@@ -414,6 +425,7 @@ try {
     .collection('welcomes')
     .where('companyid','==',companyid)
     .onSnapshot(resp =>{
+        welcomes.innerHTML = ''
         resp.forEach(data=>{
             welcomes.innerHTML += `
    <div class="container row "><label for=""><h5>&nbsp;${data.data().welcomes}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
@@ -429,6 +441,7 @@ try {
     .collection('licensing')
     .where('companyid','==',companyid)
     .onSnapshot(resp =>{
+            licensing.innerHTML = ''
         resp.forEach(data=>{
             licensing.innerHTML += `
    <div class="container row "><label for=""><h5>&nbsp;${data.data().licensing}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
@@ -443,6 +456,7 @@ try {
     .collection('capacitites')
     .where('companyid','==',companyid)
     .onSnapshot(resp =>{
+            capacitites.innerHTML = ''
         resp.forEach(data=>{
             capacitites.innerHTML += `
    <div class="container row "><label for=""><h5>&nbsp;${data.data().capacitites}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
@@ -457,9 +471,12 @@ try {
     .collection('space')
     .where('companyid','==',companyid)
     .onSnapshot(resp =>{
+        space.innerHTML = ''
         resp.forEach(data=>{
    space.innerHTML += `
+
    <div class="container row "><label for=""><h5>&nbsp;${data.data().space}</h5></label><button  class="btn btn-danger ml-auto p-2 mb-2">delete</button></div>  
+   
    `         
 
         })
@@ -468,7 +485,7 @@ try {
 
 
 } catch (error) {
-    
+    console.log(error)    
 }
 
 }
@@ -547,4 +564,68 @@ try {
 
 
 }
+
+
+
+async function basicsearch(){
+try {
+    var element = document.getElementById('inputcity').value;
+    var people = document.getElementById('inputnumberofpeople').value;
+    var type = document.getElementById('inputtype').value;
+
+
+    console.log(people,type)
+    var element2 = document.getElementById('venuescards');
+
+   
+ firebase
+ .firestore()
+ .collection("venue-basic-info")
+ .where('vencity','==',element)
+ .where('numberofpeople','==',people)
+ .where('venuetype','==',type)
+ .onSnapshot(snapshot => {
+   element2.innerHTML = "";
+
+  
+   snapshot.forEach(doc => {
+     const data = doc.data();
+     console.log(data)
+             element2.innerHTML += `
+             <div class="col-md-4">
+             <div class="card card-blog">
+                 <div class="card-image">
+                     <a href="./onevenue.html">
+                         <img class="img rounded" style="height: 200px;" src="${data.profileimage}">
+                     </a>
+                 </div>
+
+                 <div class="card-body">
+                     <h6 class="category text-primary">${data.venuename}</h6>
+
+                   
+                     <p class="card-description">
+                         As near as we can tell, this guy must have thought he was going over backwards and tapped the rear...
+                     </p>
+                     <div class="card-footer">
+                       
+                         <div class="stats stats-right">
+                             <i class="now-ui-icons tech_watch-time"></i> 5 min read
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+   `
+   })
+ })
+
+    
+} catch (error) {
+    console.log(error.message)
+}
+
+
+}
+
 

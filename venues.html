@@ -195,7 +195,7 @@
 <form>
         <div class="form-group">
                 <label for="inputAddress">Event Type</label>
-                <select id="inputState" class="form-control inputborder">
+                <select id="inputtype" class="form-control inputborder">
                         
                         <option>Wedding</option>
                         <option>Party</option>
@@ -214,7 +214,7 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Number of people</label>
-        <input type="number" class="form-control inputborder" id="inputPassword4" placeholder="I,m not sure">        
+        <input type="number" class="form-control inputborder" id="inputnumberofpeople" placeholder="I,m not sure">        
       </div>
       <div class="form-group col-md-6">
         <label for="inputPassword4">Seated/Non Seated</label>
@@ -241,6 +241,24 @@
             
           </div>
 
+
+          <div class="form-group">
+            <label for="inputCity">City</label>
+            <select id="inputcity" class="form-control inputborder">
+                
+                    <option selected>Karachi</option>
+                    <option>Lahore</option>
+                    <option>islamabad</option>
+                    <option>Hyderabad</option>
+                    <option>sukker</option>
+
+
+
+                  </select>
+            
+          </div>
+
+
     <!-- checkboxes -->
          <!-- check end -->
         <div id="adfilters"></div>
@@ -255,6 +273,8 @@
 
 
   <button id="advbutton" onclick="showadvancefilters()" class="btn btn-primary">ShowAdvance filters</button>
+  <button  onclick="basicsearch()" class="btn btn-primary">Search</button>
+
 
   <script src="advancefilters.js"></script>
 
