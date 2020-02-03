@@ -12,7 +12,7 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
 
-
+zz
 
   async function signupwithfirebase(email,password){
     try{

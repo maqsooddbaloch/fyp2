@@ -165,3 +165,18 @@
 #inpt{
   color: black;
 }
+
+#inputcity::placeholder{
+  color: black;
+}
+
+#inputtype::placeholder{
+  color: black;
+}
+
+
+#inpcountry::placeholder{
+
+color: black;
+
+}

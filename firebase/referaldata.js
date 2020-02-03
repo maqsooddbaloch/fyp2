@@ -189,66 +189,63 @@ async function update(e){
 
 
 function updateitem(){
+    var img = document.getElementById('venue-image')
 
-// var id = document.getElementById('ids')
-// // var img = localStorage.getItem('currentvenimage')
- var img = document.getElementById('venue-image')
-
- var crnt = localStorage.getItem('currentupdateitem')
-        var admid = localStorage.getItem('currentuser')
-        var name = document.getElementById('venue-name').value;
-        var vendescription = document.getElementById('venue-description').value;
-        var address = document.getElementById('venue-address').value;
-        var address2 = document.getElementById('venue-address2').value
-        var neighborhood = document.getElementById('venue-neighborhood').value
-        var country = document.getElementById('venue-country').value
-        var city = document.getElementById('venue-city').value
-        var postcode = document.getElementById('venue-postcode').value
-        var nearest = document.getElementById('venue-nearest').value
-        var venuetype = document.getElementById('venue-Type').value
-        var numberofpeople = document.getElementById('venue-number').value
-
-
-const imgname = Math.random().toString();
-const imageRef = firebase
-  .storage()
-  .ref()
-  .child(`images/${imgname}.png`);
-
-imageRef
-  .put(img.files[0])
-  .then(response => {
-    console.log("uploaded");
-    return imageRef.getDownloadURL();
-  })
-  .then(url => {
+    var crnt = localStorage.getItem('currentupdateitem')
+           var admid = localStorage.getItem('currentuser')
+           var name = document.getElementById('venue-name').value;
+           var vendescription = document.getElementById('venue-description').value;
+           var address = document.getElementById('venue-address').value;
+           var address2 = document.getElementById('venue-address2').value
+           var neighborhood = document.getElementById('venue-neighborhood').value
+           var country = document.getElementById('venue-country').value
+           var city = document.getElementById('venue-city').value
+           var postcode = document.getElementById('venue-postcode').value
+           var nearest = document.getElementById('venue-nearest').value
+           var venuetype = document.getElementById('venue-Type').value
+           var numberofpeople = document.getElementById('venue-number').value
    
-        firebase
-          .firestore()
-        .collection('venue-basic-info')
-        .doc(crnt)
-        .set({
-            adminid:admid,
-            venuename:name,
-            venuedescription:vendescription,
-            venaddress:address,
-            venaddress2:address2,
-            venneighborhood:neighborhood,
-            vencountry:country,
-            vencity:city,
-            venpostcode:postcode,
-            vennearest:nearest,
-            venuetype,
-            numberofpeople,
-            profileimage:url
-        })
-
-  
-  })
-  .catch(err => {
-    console.log("err =>", err);
-  });                      
-        
+   
+   const imgname = Math.random().toString();
+   const imageRef = firebase
+     .storage()
+     .ref()
+     .child(`images/${imgname}.png`);
+   
+   imageRef
+     .put(img.files[0])
+     .then(response => {
+       console.log("uploaded");
+       return imageRef.getDownloadURL();
+     })
+     .then(url => {
+      
+           firebase
+             .firestore()
+           .collection('venue-basic-info')
+           .doc(crnt)
+           .set({
+               adminid:admid,
+               venuename:name,
+               venuedescription:vendescription,
+               venaddress:address,
+               venaddress2:address2,
+               venneighborhood:neighborhood,
+               vencountry:country,
+               vencity:city,
+               venpostcode:postcode,
+               vennearest:nearest,
+               venuetype,
+               numberofpeople,
+               profileimage:url
+           })
+   
+     
+     })
+     .catch(err => {
+       console.log("err =>", err);
+     });                      
+            
 }
 
 
@@ -513,9 +510,70 @@ try {
 window.addEventListener('load',venueslist)
 async function venueslist(){
 try {
+
+
+
+
     var element = document.getElementById('venuescards');
+    var indexsearch = localStorage.getItem('indexsearch')
+    var city = localStorage.getItem('indexcity')
+    var country = localStorage.getItem('indexcountry')
+    var type = localStorage.getItem('indextype')
+    if(indexsearch == 0)
+    {
+        element.innerHTML = '';
+        var inputtype = document.getElementById('inputtype')
+        var inputcity = document.getElementById('inputcity')
 
 
+        inputtype.value = type
+        inputcity.value = city
+
+
+
+        localStorage.setItem('indexsearch',1)
+
+        firebase
+    .firestore()
+    .collection("venue-basic-info")
+    .where('vencity','==',city)
+     .where('vencountry','==',country)
+     .where('venuetype','==',type)
+    .onSnapshot(snapshot => {
+      element.innerHTML = "";    
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        console.log(data)
+                element.innerHTML += `
+                <div class="col-md-4">
+                <div class="card card-blog">
+                    <div class="card-image">
+                        <a href="./onevenue.html">
+                            <img class="img rounded" style="height: 200px;" src="${data.profileimage}">
+                        </a>
+                    </div>
+
+                    <div class="card-body">
+                        <h6 class="category text-primary">${data.venuename}</h6>
+
+                      
+                        <p class="card-description">
+                            As near as we can tell, this guy must have thought he was going over backwards and tapped the rear...
+                        </p>
+                        <div class="card-footer">
+                          
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+      `
+      })
+    })
+ 
+
+    }
+    else{
 
  firebase
     .firestore()
@@ -545,9 +603,7 @@ try {
                         </p>
                         <div class="card-footer">
                           
-                            <div class="stats stats-right">
-                                <i class="now-ui-icons tech_watch-time"></i> 5 min read
-                            </div>
+                         
                         </div>
                     </div>
                 </div>
@@ -555,7 +611,7 @@ try {
       `
       })
     })
-
+    }
 } catch (error) {
     console.log(error.message)
 }
@@ -569,20 +625,24 @@ try {
 
 async function basicsearch(){
 try {
-    var element = document.getElementById('inputcity').value;
-    var people = document.getElementById('inputnumberofpeople').value;
-    var type = document.getElementById('inputtype').value;
-
-
-    console.log(people,type)
     var element2 = document.getElementById('venuescards');
+
+    
+     var element = document.getElementById('inputcity').value;
+    //  var people = document.getElementById('inputnumberofpeople').value;
+   var type = document.getElementById('inputtype').value;
+     console.log(element2)
+
+     console.log(element,type)
+
+   
 
    
  firebase
  .firestore()
  .collection("venue-basic-info")
  .where('vencity','==',element)
- .where('numberofpeople','==',people)
+// .where('numberofpeople','==', people)
  .where('venuetype','==',type)
  .onSnapshot(snapshot => {
    element2.innerHTML = "";
@@ -609,9 +669,7 @@ try {
                      </p>
                      <div class="card-footer">
                        
-                         <div class="stats stats-right">
-                             <i class="now-ui-icons tech_watch-time"></i> 5 min read
-                         </div>
+                     
                      </div>
                  </div>
              </div>
@@ -627,5 +685,92 @@ try {
 
 
 }
+
+indexsearch = () =>{
+    
+    try {
+        console.log('index working')
+
+          var city = document.getElementById('inputcity').value
+          var type = document.getElementById('inputtype').value
+          var country = document.getElementById('inpcountry').value
+
+           localStorage.setItem('indexcity',city)
+           localStorage.setItem('indextype',type)  
+           localStorage.setItem('indexcountry',country)        
+           localStorage.setItem('indexsearch',0)
+          location.assign('./venues.html')
+           
+} catch (error) {
+    console.log(error.message)
+}
+
+}
+ sendbooking = () =>{
+
+try {
+    alert('your request has sent')
+} catch (error) {
+    alert(error.message)
+    
+}
+
+}
+
+
+logoutt = () =>{
+    localStorage.removeItem('currentuser');
+    location.assign('')
+}
+
+
+
+
+
+
+    
+//  firebase
+//  .firestore()
+//  .collection("venue-basic-info")
+//  .where('vencity','==','Lahore')
+//  .where('numberofpeople','==',22)
+//  .where('venuetype','==','Conference')
+//  .onSnapshot(snapshot => {
+//    element2.innerHTML = "";
+
+  
+//    snapshot.forEach(doc => {
+//      const data = doc.data();
+//      console.log(data)
+//              element2.innerHTML += `
+//              <div class="col-md-4">
+//              <div class="card card-blog">
+//                  <div class="card-image">
+//                      <a href="./onevenue.html">
+//                          <img class="img rounded" style="height: 200px;" src="${data.profileimage}">
+//                      </a>
+//                  </div>
+
+//                  <div class="card-body">
+//                      <h6 class="category text-primary">${data.venuename}</h6>
+
+                   
+//                      <p class="card-description">
+//                          As near as we can tell, this guy must have thought he was going over backwards and tapped the rear...
+//                      </p>
+//                      <div class="card-footer">
+                       
+//                          <div class="stats stats-right">
+//                              <i class="now-ui-icons tech_watch-time"></i> 5 min read
+//                          </div>
+//                      </div>
+//                  </div>
+//              </div>
+//          </div>
+//    `
+//    })
+//  })
+
+
 
 

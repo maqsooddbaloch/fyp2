@@ -1,5 +1,5 @@
 var advfilters = document.getElementById('adfilters')
-var advbutton = document.getElementById('advbutton')
+// var advbutton = document.getElementById('advbutton')
 
 showadvancefilters = () => {
 
@@ -142,6 +142,6 @@ showadvancefilters = () => {
 </div>
   
   `
-advbutton.innerHTML = 'Search'  
+// advbutton.innerHTML = ''  
 
 }

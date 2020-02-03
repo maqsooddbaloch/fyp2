@@ -132,7 +132,8 @@
                             <span class="navbar-toggler-bar bar2"></span>
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
-                        <a class="navbar-brand mr-5"  href="#pablo"><img src="https://scontent.fkhi16-1.fna.fbcdn.net/v/t1.15752-9/78576062_2214312852204385_8545864323417767936_n.png?_nc_cat=105&_nc_eui2=AeGCOuCczxThHyv3olb4AtNhesp5ul5y3nUl8fg7b7GeUz8Xc0KyR4Lgrn-5-ZWfbyOKUsxvUxP0xmvSBCAZxr5av2cA3FWaYNps6W6aDfm_gA&_nc_ohc=xJWZQprgJHIAQkFMoPLSInVAaPXZnViPLnG0apOurayOQVaZ7uO-mPDoA&_nc_ht=scontent.fkhi16-1.fna&oh=103ddef5294b3fcf0a1806c7bb9d8d9f&oe=5E6A4FD1" alt=""></a>
+                        <a class="navbar-brand mr-5"  href="/index.html"><img src="https://scontent.fkhi16-1.fna.fbcdn.net/v/t1.15752-9/78576062_2214312852204385_8545864323417767936_n.png?_nc_cat=105&_nc_eui2=AeGCOuCczxThHyv3olb4AtNhesp5ul5y3nUl8fg7b7GeUz8Xc0KyR4Lgrn-5-ZWfbyOKUsxvUxP0xmvSBCAZxr5av2cA3FWaYNps6W6aDfm_gA&_nc_ohc=xJWZQprgJHIAQkFMoPLSInVAaPXZnViPLnG0apOurayOQVaZ7uO-mPDoA&_nc_ht=scontent.fkhi16-1.fna&oh=103ddef5294b3fcf0a1806c7bb9d8d9f&oe=5E6A4FD1" alt=""></a>
+
                     </div>
         
                     <div class="collapse navbar-collapse">
@@ -150,6 +151,12 @@
                                                 <i class="far fa-user"></i>   Ask A Venue expert &nbsp;&nbsp;&nbsp;&nbsp;
                                             </a>
                                             </li>
+
+                                            <li class="nav">
+                                                <a class="nav-link mt-1" style="font-size: 20px; letter-spacing: 3px; font-family: inherit; font-weight: 500;"  href="./venues.html" >
+                                                       Venues&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </a>
+                                                </li>
         
         
                                             <li class="nav-item">
@@ -211,7 +218,7 @@
                       </select>
               </div>
               
-    <div class="form-row">
+    <!-- <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Number of people</label>
         <input type="number" class="form-control inputborder" id="inputnumberofpeople" placeholder="I,m not sure">        
@@ -223,7 +230,7 @@
                 <option>Non Seated</option>
               </select>
       </div>
-    </div>
+    </div> -->
 
     <div class="form-group">
             <label for="inputAddress">Location</label>
@@ -262,7 +269,7 @@
     <!-- checkboxes -->
          <!-- check end -->
         <div id="adfilters"></div>
-
+        <label for="Pricing">Pricing</label>
           
     <div id="sliderr"></div>
     <script src="slider.js"></script>
@@ -273,7 +280,8 @@
 
 
   <button id="advbutton" onclick="showadvancefilters()" class="btn btn-primary">ShowAdvance filters</button>
-  <button  onclick="basicsearch()" class="btn btn-primary">Search</button>
+  <a href="#jumptocards"><button   onclick="basicsearch()" class="btn btn-primary">Search</button></a>
+
 
 
   <script src="advancefilters.js"></script>
@@ -295,15 +303,15 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-md-10 ml-auto mr-auto text-center">
+                <div id="jumptocards" class="col-md-10 ml-auto mr-auto text-center">
                     <h2 class="title">Venues</h2>
                     <p>According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice extent in the Pacific and a late drop in ice extent in the Barents Sea.
                         </p>
                         <br>
 
 
-                    <div class="row" id="venuescards">
-                       
+                    <div class="row"  id="venuescards" >
+                      
                         
 
     

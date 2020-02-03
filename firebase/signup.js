@@ -9,7 +9,8 @@ async function register(){
     try{
     var response = await signupwithfirebase(eml,ps);
     var uid = response.user.uid;
-    var resp = await firebase
+    var resp = await
+     firebase
     .firestore()
     .collection('userdetail')
     .doc(uid)
@@ -21,7 +22,7 @@ async function register(){
         ps.value = ''
         nme.value = ''
 
-    console.log('success')
+    alert('registered successfully')
     }
     catch(e)
     {
